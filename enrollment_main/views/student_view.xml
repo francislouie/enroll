@@ -1,0 +1,102 @@
+<openerp>
+  <data>
+  	<record model="ir.actions.act_window" id="student_list_action">
+  		  <field name="name">Student</field>
+  		  <field name="res_model">enroll.student</field>
+  		  <field name="view_type">form</field>
+  		  <field name="view_mode">tree,form</field>
+  		  <field name="help" type="html">
+  		  	<p class="oe_view_nocontent_create">
+  		  	Fill up your first student
+  		  	</p>
+  		  </field> 		  
+  	</record>
+   	
+  	
+  	<menuitem id="main_enrollstudent_menu" name="Students"/>
+  	<menuitem id="enrollstudent_menu" name="Students" parent="main_enrollstudent_menu"/>
+  	<menuitem id="student_menu" name="Students Information" parent="enrollstudent_menu" action="student_list_action"/>
+  
+  	<record id="student_form_views" model="ir.ui.view">
+  		<field name="name">enroll.student.form</field>
+  		<field name="model">enroll.student</field>
+  		<field name="arch" type="xml">  		
+	
+  			<form>
+  				<sheet>
+  					<div>
+  						<h1>
+  							<table>  								
+  								<tr>
+  									<td>
+  										<field name="photo" widget="image"
+                    						class="oe_left oe_avatar" 
+                    						/>
+  									</td>
+  									<td>
+  										
+  										
+  											<field name="student_id"/>
+  											<field name="fullname"/>
+  										 										
+  									</td> 
+  								</tr>
+  							</table>
+  							<!-- <table>
+  								<tr>
+  									<td>
+  										<field name="student_id"/>
+  									</td>  	
+  								</tr>
+  							</table>	 -->																
+  						</h1> 							  						
+  					</div>  					
+  					<notebook>
+  						<page string="Personal Information">
+  							<group>
+  								<group>
+  									<field name="first_name"/> 
+                                	<field name="middle_name"/>
+                                  	<field name="last_name"/>
+  									<field name="nick_name"/>
+  									<field name="age_complete"/>
+  								</group>
+  								<group>	  										
+  									<field name="birth_date"/>
+  									<field name="gender"/>
+  									<field name="birthplace"/>
+  									<field name="height"/>
+  									<field name="weight"/>
+  									<field name="religion"/> 
+  									<field name="citizen"/> 						
+  								</group>  	
+  							</group>  							
+  						</page>
+  						<page string="Parents / Guardian">
+  						
+  						</page>
+  						<page string="Subject">
+  							<field name="subject"/>
+  						</page>
+  					</notebook>			
+  				</sheet>  				
+  			</form>  			
+  		</field>
+  	</record>
+  	
+  	<record id="student_tree_views" model="ir.ui.view">
+  		<field name="name">enroll.student.tree</field>
+  		<field name="model">enroll.student</field>
+  		<field name="arch" type="xml">
+  			<tree string="Student">
+  				<field name="fullname"/>
+  				<field name="first_name"/>
+  				<field name="last_name"/>
+  				<field name="gender"/> 
+  			</tree>
+  		</field>
+  	</record>
+  	
+  	
+  </data>
+</openerp>

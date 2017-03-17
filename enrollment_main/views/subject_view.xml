@@ -1,0 +1,53 @@
+<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="subject_list_action">
+  			<field name="name">Subject</field>
+  		  	<field name="res_model">enroll.subject</field>
+  		  	<field name="view_type">form</field>
+  		  	<field name="view_mode">tree,form</field>
+  		  	<field name="help" type="html">
+  		  		<p class="oe_view_nocontent_create">
+  		  			Fill up your first subject
+  		  		</p>
+  		  	</field> 		  
+  		</record>
+   	
+  	
+  		<!-- <menuitem id="main_enrollsubject_menu" name="Subject"/>
+  		<menuitem id="enrollsubject_menu" name="Subject" parent="main_enrollsubject_menu"/> 
+  		<menuitem id="subject_menu" name="Subject" parent="enrollsubject_menu" action="subject_list_action"/> -->
+  		<menuitem id="main_enrollstudent_menu" name="Students"/>
+  		<menuitem id="enrollsubject_menu" name="Subject" parent="main_enrollstudent_menu"/>
+  		<menuitem id="subject_menu" name="Subject" parent="enrollstudent_menu" action="subject_list_action"/>
+ 
+ 
+  		<record id="subject_form_views" model="ir.ui.view">
+  			<field name="name">enroll.subject.form</field>
+  			<field name="model">enroll.subject</field>
+  			<field name="arch" type="xml">
+  				<form>
+  					<sheet>
+  						<group>
+  							<field name="code"/>
+							<field name="name"/>
+							<field name="description"/>
+  						</group>  						
+  					</sheet>
+  				</form>
+  			</field>
+  		</record>
+  		
+  		<record id="subject_tree_views" model="ir.ui.view">
+  			<field name="name">enroll.subject.tree</field>
+  			<field name="model">enroll.subject</field>
+  			<field name="arch" type="xml">
+  				<tree>
+  					<field name="code"/>
+					<field name="name"/>
+					<field name="description"/>
+  				</tree>
+  			</field>
+  		</record>
+  		
+	</data>
+</openerp>
