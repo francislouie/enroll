@@ -3,9 +3,10 @@ from datetime import timedelta,time,date,datetime
 
 class enrollStudent(models.Model):
     _name = 'enroll.student'
-  
-    student_id = fields.Char('Student id',readonly=True)
-    fullname = fields.Char('Fullname', readonly=True)
+    
+    
+    student_id = fields.Char('Student id')
+    name = fields.Char('Fullname')
     first_name = fields.Char('First Name', required=True, size=128)
     middle_name = fields.Char('Middle Name', required=True, size=128)
     last_name = fields.Char('Last Name', required=True, size=128)    
@@ -25,6 +26,7 @@ class enrollStudent(models.Model):
     
     subject = fields.Many2many('enroll.subject',string='Subject')
     
+    teacher = fields.Many2one('hr.employee', string='Teacher')
     @api.depends('birth_date')
     def _get_age(self):
         for r in self:
@@ -49,37 +51,36 @@ class enrollStudent(models.Model):
                 r.age = str(years)
     @api.model
     def create(self, vals):       
-        first = vals['first_name']
-        mid = vals['middle_name']
-        last = vals['last_name']
+        first = vals['first_name'].upper().strip()
+        mid = vals['middle_name'].upper().strip()
+        last = vals['last_name'].upper().strip()
         
-        vals['fullname'] = first + ' ' + mid + ' ' + last
+        vals['name'] = first + ' ' + mid[0]+'.' + ' ' + last
         
         vals['student_id'] = self.env['ir.sequence'].get('stud_id') 
         
         return super(enrollStudent, self).create(vals)
 
-
-# class parent_father(models.Model):
-#     _name = 'parent.father'
-#         
-#     first_name = fields.Char('First Name', required=True, size=128)
-#     middle_name = fields.Char('Middle Name', required=True, size=128)
-#     last_name = fields.Char('Last Name', required=True, size=128)
-#     religion = fields.Char('Religion')
-#     citizen = fields.Char('Citizen')
-#     photo = fields.Binary('Photo')
-#     birth_date = fields.Date('Birth Date', required=True)
-#     address = fields.Char('Permanent Address')    
-#     
-# class parent_mother(models.Model):    
-#     _name = 'parent.mother'
-#     
-#     first_name = fields.Char('First Name', required=True, size=128)
-#     middle_name = fields.Char('Middle Name', required=True, size=128)
-#     last_name = fields.Char('Last Name', required=True, size=128)    
-#     religion = fields.Char('Religion')
-#     citizen = fields.Char('Citizen')
-#     photo = fields.Binary('Photo')
-#     birth_date = fields.Date('Birth Date', required=True)
-#     address = fields.Char('Permanent Address')
+    @api.multi
+    def write(self, vals):
+        if vals.get('first_name') :
+            vals['first_name'] = vals.get('first_name').upper().strip()
+        else:
+            if self.first_name != False:
+                vals['first_name'] = self.first_name.upper().strip()
+                
+        if vals.get('middle_name') :
+            vals['middle_name'] = vals.get('middle_name').upper().strip()
+        else:
+            if self.middle_name != False:
+                vals['middle_name'] = self.middle_name.upper().strip()
+                
+        if vals.get('last_name') :
+            vals['last_name'] = vals.get('last_name').upper().strip()
+        else:
+            if self.last_name != False:
+                vals['last_name'] = self.last_name.upper().strip()
+                
+        return super(enrollStudent, self).write(vals)   
+  
+                    

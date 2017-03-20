@@ -1,0 +1,55 @@
+<odoo>
+	<data>
+		<record model="ir.actions.act_window" id="parent_list_action">
+			<field name="name">Parent</field>
+			<field name="res_model">parent.guardian</field>
+  		  	<field name="view_type">form</field>
+  		  	<field name="view_mode">tree,form</field>
+  		  <!-- 	<field name="help" type="html">
+  		  		<p class="oe_view_nocontent_create">
+  		  		Fill up your first student
+  		  		</p>
+  			</field> 	 -->		
+		</record>
+		
+		<menuitem id="main_enrollstudent_menu" name="Enrollment"/>
+  		<menuitem id="enrollstudent_menu" name="Students" parent="main_enrollstudent_menu"/>
+  		<menuitem id="parent_menu" name="Parents" parent="enrollstudent_menu" action="parent_list_action"/>
+
+		<record id="parent_form_views" model="ir.ui.view">
+			<field name="name">parent.guardian.form</field>
+  			<field name="model">parent.guardian</field>
+  			<field name="arch" type="xml">
+  				<form>
+  					<sheet>
+  						<field name="photo" widget="image"
+                    		class="oe_left oe_avatar" 
+                    	/>
+                    	<notebook>
+                    		<page string="Personal Information">
+  								<group>
+  									<group>
+  										<field name="firstname"/> 
+                                		<field name="middlename"/>
+                                  		<field name="lastname"/>
+                                  		<field name="birth_date"/>
+  									</group>
+  									<group> 
+  										<field name="birth_date"/> 										
+  										<field name="religion"/> 
+  										<field name="citizen"/>
+  										<field name="address"/>
+  										<field name="contact_number"/> 						
+  									</group>  	
+  								</group>  							
+  							</page>
+  							<page string="Students">
+  								<field name="student_ids"/>
+  							</page>
+                    	</notebook>
+  					</sheet>
+  				</form>
+  			</field>  
+		</record>
+	</data>
+</odoo>

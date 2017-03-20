@@ -1,0 +1,38 @@
+<openerp>
+	<data>		
+		<record id="hr_employee_form" model="ir.ui.view">
+			<field name="name">hr.employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref='hr.view_employee_form'/>
+			<field name="arch" type="xml">
+			
+				<xpath expr="//field[@name='name']" position="replace">
+					<field name="fullname"/>
+				</xpath>
+				<xpath expr="//notebook/page/group/group/field[@name='address_id']" position="before">
+					<field name="firstname" placeholder="First Name"/>
+					<field name="middlename" placeholder="Middle Name"/>
+					<field name="lastname" placeholder="Last Name"/>					
+				</xpath>
+			</field>	
+		</record>
+		
+		<record model="ir.actions.act_window" id="teacher_list_action">
+  			<field name="name">teacher</field>
+  		  	<field name="res_model">hr.employee</field>
+  		  	<field name="view_type">form</field>
+  		  	<field name="view_mode">tree,form</field>
+  		  	<field name="help" type="html">
+  		  		<p class="oe_view_nocontent_create">
+  		  			Fill up your first teacher
+  		  		</p>
+  		  	</field> 		  
+  		</record>
+		
+		<menuitem id="main_enrollstudent_menu" name="Enrollment"/>
+  		<menuitem id="enrollteacher_menu" name="Faculty" parent="main_enrollstudent_menu"/>
+  		<menuitem id="teacher_menu" name="Teacher" parent="enrollteacher_menu" action="teacher_list_action"/>
+  
+	</data>
+</openerp>

@@ -16,9 +16,9 @@
   		<!-- <menuitem id="main_enrollsubject_menu" name="Subject"/>
   		<menuitem id="enrollsubject_menu" name="Subject" parent="main_enrollsubject_menu"/> 
   		<menuitem id="subject_menu" name="Subject" parent="enrollsubject_menu" action="subject_list_action"/> -->
-  		<menuitem id="main_enrollstudent_menu" name="Students"/>
+  		<menuitem id="main_enrollstudent_menu" name="Enrollment"/>
   		<menuitem id="enrollsubject_menu" name="Subject" parent="main_enrollstudent_menu"/>
-  		<menuitem id="subject_menu" name="Subject" parent="enrollstudent_menu" action="subject_list_action"/>
+  		<menuitem id="subject_menu" name="Subject" parent="enrollsubject_menu" action="subject_list_action"/>
  
  
   		<record id="subject_form_views" model="ir.ui.view">

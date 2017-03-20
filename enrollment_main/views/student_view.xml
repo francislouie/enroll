@@ -1,5 +1,6 @@
 <openerp>
   <data>
+  
   	<record model="ir.actions.act_window" id="student_list_action">
   		  <field name="name">Student</field>
   		  <field name="res_model">enroll.student</field>
@@ -13,7 +14,7 @@
   	</record>
    	
   	
-  	<menuitem id="main_enrollstudent_menu" name="Students"/>
+  	<menuitem id="main_enrollstudent_menu" name="Enrollment"/>
   	<menuitem id="enrollstudent_menu" name="Students" parent="main_enrollstudent_menu"/>
   	<menuitem id="student_menu" name="Students Information" parent="enrollstudent_menu" action="student_list_action"/>
   
@@ -33,12 +34,9 @@
                     						class="oe_left oe_avatar" 
                     						/>
   									</td>
-  									<td>
-  										
-  										
-  											<field name="student_id"/>
-  											<field name="fullname"/>
-  										 										
+  									<td> 										
+  											<field name="student_id" readonly="True"/>
+  											<field name="name" readonly="True"/>  										 										
   									</td> 
   								</tr>
   							</table>
@@ -49,7 +47,7 @@
   									</td>  	
   								</tr>
   							</table>	 -->																
-  						</h1> 							  						
+  						</h1>  						 							  						
   					</div>  					
   					<notebook>
   						<page string="Personal Information">
@@ -73,14 +71,17 @@
   							</group>  							
   						</page>
   						<page string="Parents / Guardian">
-  						
+  							<field name="parent_ids"/>
   						</page>
   						<page string="Subject">
   							<field name="subject"/>
   						</page>
+  						<page string="Teacher">
+  							<field name="teacher"/>
+  						</page>
   					</notebook>			
-  				</sheet>  				
-  			</form>  			
+  				</sheet>  								
+  			</form>	
   		</field>
   	</record>
   	
@@ -89,11 +90,11 @@
   		<field name="model">enroll.student</field>
   		<field name="arch" type="xml">
   			<tree string="Student">
-  				<field name="fullname"/>
+  				<field name="name"/>
   				<field name="first_name"/>
   				<field name="last_name"/>
   				<field name="gender"/> 
-  			</tree>
+  			</tree>  			
   		</field>
   	</record>
   	

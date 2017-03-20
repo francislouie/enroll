@@ -22,7 +22,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','hr'],
 
     # always loaded
     'data': [
@@ -31,6 +31,8 @@
 #         'views/templates.xml',
         'views/student_view.xml',
         'views/subject_view.xml',
+        'views/teacher_view.xml',
+        'views/parent_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
