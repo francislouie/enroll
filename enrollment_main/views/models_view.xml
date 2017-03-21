@@ -1,0 +1,70 @@
+<openerp>
+	<data>		
+		
+		<record model="ir.ui.view" id="religion_form_view">
+            <field name="name">religion.form</field>
+            <field name="model">enroll.religion</field>
+            <field name="arch" type="xml">
+                <form string="Religion Form">
+                    <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record model="ir.actions.act_window" id="religion_tree_action">
+            <field name="name">Religion</field>
+            <field name="res_model">enroll.religion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first religion
+                </p>
+            </field>
+        </record>
+		
+		<menuitem id="configuration_menu" name="Configuration"
+                  parent="main_enrollstudent_menu"/>
+        <menuitem id="religion_menu" name="Religion"
+                  parent="configuration_menu"
+                  action="religion_tree_action"/>
+<!-- citizen -->        
+        <record model="ir.ui.view" id="citizen_form_view">
+            <field name="name">citizen.form</field>
+            <field name="model">enroll.citizen</field>
+            <field name="arch" type="xml">
+                <form string="Citizen Form">
+                    <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record model="ir.actions.act_window" id="citizen_tree_action">
+            <field name="name">Citizen</field>
+            <field name="res_model">enroll.citizen</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first citizen
+                </p>
+            </field>
+        </record>
+		
+		<menuitem id="configuration_menu" name="Configuration"
+                  parent="main_enrollstudent_menu"/>
+        <menuitem id="citizen_menu" name="Citizen"
+                  parent="configuration_menu"
+                  action="citizen_tree_action"/>
+	</data>
+</openerp>

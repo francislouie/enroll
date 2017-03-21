@@ -33,6 +33,7 @@
         'views/subject_view.xml',
         'views/teacher_view.xml',
         'views/parent_view.xml',
+        'views/models_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

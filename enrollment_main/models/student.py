@@ -21,8 +21,8 @@ class enrollStudent(models.Model):
     photo = fields.Binary('Photo')
     height = fields.Float('Height')
     weight = fields.Float('Weight')
-    religion = fields.Char('Religion')
-    citizen = fields.Char('Citizen')
+    religion_id = fields.Many2one('enroll.religion',string='Religion')
+    citizen_id = fields.Many2one('enroll.citizen',string='Citizen')
     
     subject = fields.Many2many('enroll.subject',string='Subject')
     

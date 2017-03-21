@@ -65,8 +65,8 @@
   									<field name="birthplace"/>
   									<field name="height"/>
   									<field name="weight"/>
-  									<field name="religion"/> 
-  									<field name="citizen"/> 						
+  									<field name="religion_id"/> 
+  									<field name="citizen_id"/> 						
   								</group>  	
   							</group>  							
   						</page>

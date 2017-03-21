@@ -36,8 +36,8 @@
   									</group>
   									<group> 
   										<field name="birth_date"/> 										
-  										<field name="religion"/> 
-  										<field name="citizen"/>
+  										<field name="religion_id"/> 
+  										<field name="citizen_id"/> 		
   										<field name="address"/>
   										<field name="contact_number"/> 						
   									</group>  	
