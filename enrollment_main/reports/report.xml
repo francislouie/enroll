@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report
+			id="report_students"
+			model="enroll.student"
+			string="Student Report"
+			name="enrollment_main.report_student_view"
+			file="enrollment_main.report_student"
+			report_type="qweb-pdf" />
+
+		<template id="report_student_view">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="report.external_layout">
+						<div class="page">
+                        	<h3 t-field="doc.name"/>
+
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+		<template id="report_student_view">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="doc">
+					<t t-call="report.external_layout">
+						<div class="page">
+                        	<h3 t-field="doc.name"/>
+
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+	</data>
+</openerp>
+
